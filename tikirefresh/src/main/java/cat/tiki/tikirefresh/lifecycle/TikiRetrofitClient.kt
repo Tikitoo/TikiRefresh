@@ -1,4 +1,4 @@
-package cat.tiki.tikirefresh
+package cat.tiki.tikirefresh.lifecycle
 
 import cat.tiki.tikirefresh.lifecycle.HttpsUtils
 import com.squareup.moshi.Moshi
@@ -7,7 +7,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-class TikiRetrofitClient {
+open class TikiRetrofitClient {
 
     fun getRetrofit(): Retrofit {
         val moshi = Moshi.Builder()
@@ -32,7 +32,6 @@ class TikiRetrofitClient {
             .build()
         return okHttpClient
     }
-
 
     companion object {
         private var HTTPS_API_HOST = "https://api.zaozuo.com"

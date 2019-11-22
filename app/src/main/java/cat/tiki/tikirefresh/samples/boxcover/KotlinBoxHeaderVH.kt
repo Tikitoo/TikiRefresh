@@ -1,9 +1,9 @@
-package cat.tiki.tikirefresh.boxcover
+package cat.tiki.tikirefresh.samples.boxcover
 
 import android.view.View
 import android.widget.TextView
 import cat.tiki.tikiadapter.TikiBaseVHImpl
-import cat.tiki.tikirefresh.R
+import cat.tiki.tikirefresh.samples.R
 
 /**
  * Created by Yifa Liang on 2019-08-20.

@@ -1,4 +1,4 @@
-package cat.tiki.tikirefresh.boxcover
+package cat.tiki.tikirefresh.samples.boxcover
 
 import android.os.Parcelable
 import androidx.annotation.Keep

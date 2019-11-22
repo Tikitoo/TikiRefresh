@@ -9,6 +9,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import cat.tiki.tikiadapter.TikiBaseModel
 import cat.tiki.tikiadapter.TikiRvAdapter
+import cat.tiki.tikirefresh.lifecycle.ApiErrorResponse
+import cat.tiki.tikirefresh.lifecycle.ApiSuccessResponse
+import cat.tiki.tikirefresh.lifecycle.TikiApiResponse
 import cat.tiki.tikirefresh.widget.TikiLoadMoreCircleFooter
 import cat.tiki.tikirefresh.widget.TikiErrorView
 import kotlinx.android.synthetic.main.lib_arch_activity_kotlin_base.*

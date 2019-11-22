@@ -1,4 +1,4 @@
-package cat.tiki.tikirefresh
+package cat.tiki.tikirefresh.lifecycle
 
 import retrofit2.Response
 

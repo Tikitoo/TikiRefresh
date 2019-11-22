@@ -6,5 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/activity_main_refresh_sample_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/click_btn_height"
+        android:text="@string/test_title"
+        />
 
 </LinearLayout>

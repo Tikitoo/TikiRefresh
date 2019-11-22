@@ -1,7 +1,7 @@
-package cat.tiki.tikirefresh.boxcover
+package cat.tiki.tikirefresh.samples.boxcover
 
 import androidx.lifecycle.LiveData
-import cat.tiki.tikirefresh.TikiApiResponse
+import cat.tiki.tikirefresh.lifecycle.TikiApiResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

@@ -1,4 +1,4 @@
-package cat.tiki.tikirefresh.boxcover
+package cat.tiki.tikirefresh.samples.boxcover
 
 import androidx.lifecycle.*
 import cat.tiki.tikirefresh.TikiBaseViewModel

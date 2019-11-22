@@ -1,13 +1,14 @@
-package cat.tiki.tikirefresh.boxcover
+package cat.tiki.tikirefresh.samples.boxcover
 
 import android.os.Bundle
 import androidx.lifecycle.LiveData
 import cat.tiki.tikirefresh.TikiBaseRefreshActivity
 import cat.tiki.tikiadapter.TikiBaseModel
 import cat.tiki.common.extension.dip2px
-import cat.tiki.tikirefresh.R
-import cat.tiki.tikirefresh.TikiApiResponse
+import cat.tiki.tikirefresh.lifecycle.TikiApiResponse
 import cat.tiki.tikirefresh.extension.viewModel
+import cat.tiki.tikirefresh.samples.R
+
 /**
  * Created by Yifa Liang on 2019-08-21.
  */

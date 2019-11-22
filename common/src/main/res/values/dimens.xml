@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_size_medium">14dp</dimen>
+    <dimen name="click_btn_height">45dp</dimen>
+</resources>

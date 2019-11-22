@@ -1,8 +1,7 @@
-package cat.tiki.tikirefresh
+package cat.tiki.tikirefresh.samples
 
 import android.app.Application
 import android.content.Context
-import androidx.multidex.MultiDex
 import cat.tiki.common.extension.TikiCommon
 
 /**
@@ -11,7 +10,7 @@ import cat.tiki.common.extension.TikiCommon
 class TikiContext: Application() {
     override fun onCreate() {
         super.onCreate()
-        _context  = this
+        _context = this
 
         TikiCommon.context = this
     }

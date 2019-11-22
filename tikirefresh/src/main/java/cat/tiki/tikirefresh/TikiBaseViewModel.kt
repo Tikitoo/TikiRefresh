@@ -2,6 +2,7 @@ package cat.tiki.tikirefresh
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import cat.tiki.tikirefresh.lifecycle.TikiRetrofitClient
 
 /**
  * T 做一个基类
