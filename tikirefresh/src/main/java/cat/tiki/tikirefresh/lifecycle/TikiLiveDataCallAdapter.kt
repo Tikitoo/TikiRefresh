@@ -28,7 +28,7 @@ class TikiLiveDataCallAdapter<R>(private val responseType: Type): CallAdapter<R,
             }
 
             private fun enqueue() {
-                call.enqueue(object : Callback<R> {
+                call?.clone()?.enqueue(object : Callback<R> {
                     override fun onFailure(call: Call<R>, t: Throwable) {
                         postValue(TikiApiResponse.create(UNKNOWN_CODE, t))
                     }

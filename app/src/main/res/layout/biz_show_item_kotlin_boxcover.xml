@@ -15,7 +15,6 @@
         android:id="@+id/biz_show_item_boxcover_txt_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_gray"
         android:orientation="vertical"
         android:paddingTop="10dp"
         >

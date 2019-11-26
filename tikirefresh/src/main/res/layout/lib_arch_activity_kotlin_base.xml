@@ -11,6 +11,7 @@
 
     </cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout>
 
+
     <cat.tiki.tikirefresh.widget.TikiErrorView
         android:id="@+id/biz_show_kotlin_base_error_view"
         android:layout_width="match_parent"

@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.lib_widget_smart_refresh_layout.view.*
 open class TikiSmartRefreshLayout : RelativeLayout {
 
     private lateinit var refreshRv: RecyclerView
-    private lateinit var refreshLayout:SmartRefreshLayout
+    private lateinit var refreshLayout: SmartRefreshLayout
 
     constructor(context: Context): super(context) {
         initView(context, null)
@@ -44,6 +44,7 @@ open class TikiSmartRefreshLayout : RelativeLayout {
         refreshLayout?.apply {
             setOnRefreshListener {
                 it.finishRefresh(2000/*,false*/);//传入false表示刷新失败
+                println("onRefreshBegin")
                 callback?.onRefreshBegin()
             }
             setOnLoadMoreListener {
@@ -91,6 +92,11 @@ open class TikiSmartRefreshLayout : RelativeLayout {
     open fun setCallback(callback: Callback) {
         this.callback = callback
     }
+
+    fun autoRefresh() {
+        refreshLayout.autoRefresh()
+    }
+
     interface Callback {
         /**
          * 开始下拉 自定的Header

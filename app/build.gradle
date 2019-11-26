@@ -37,7 +37,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation ('androidx.core:core-ktx:1.0.0') {
+        exclude group: 'org.jetbrains.kotlin', module:'kotlin-stdlib'
+    }
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.0.0'
@@ -50,9 +52,12 @@ dependencies {
 
     implementation (project(':TikiRefresh')) {
         exclude group: 'cat.tiki', module: 'tikiadapter'
+        exclude group: 'org.jetbrains.kotlin', module:'kotlin-stdlib'
     }
 
-    implementation 'cat.tiki:tikiadapter:0.1.5'
+    implementation ('cat.tiki:tikiadapter:0.1.5') {
+        exclude group: 'org.jetbrains.kotlin', module:'kotlin-stdlib'
+    }
 
 
 

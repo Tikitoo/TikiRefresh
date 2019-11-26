@@ -1,6 +1,8 @@
 package cat.tiki.tikirefresh.samples.boxcover
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.lifecycle.LiveData
 import cat.tiki.tikirefresh.TikiBaseRefreshActivity
 import cat.tiki.tikiadapter.TikiBaseModel
@@ -18,7 +20,9 @@ class KotlinBoxCoverActivity: TikiBaseRefreshActivity<KotlinSubject, KotlinBoxCo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        onStartRefresh()
         onFirstLoad()
+
     }
 
     override fun onSuccCallback(body: KotlinSubject) {
@@ -61,7 +65,33 @@ class KotlinBoxCoverActivity: TikiBaseRefreshActivity<KotlinSubject, KotlinBoxCo
     }
 
     override fun createLiveData(): LiveData<TikiApiResponse<KotlinSubject>>? {
+        viewModel.tagId = 249
         return viewModel.topicListModel
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_goods, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId) {
+            R.id.action_clear -> {
+                clearData()
+                return true
+            }
+            R.id.action_no_network -> {
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+
+    }
+
+    private fun clearData() {
+        updateData(mutableListOf<TikiBaseModel>())
+        setEmptyText("空内容")
     }
 
 }

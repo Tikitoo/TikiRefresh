@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="TikiCommon" parent="TextAppearance.AppCompat">
+    <style name="TikiCommon" parent="Theme.AppCompat.Light">
 
     </style>
 
     <style name="TikiCommon.ClickBtnStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/click_btn_height</item>
-<!--        <item name="android:layout_gravity">center</item>-->
-        <item name="android:textColor">@dimen/click_btn_height</item>
+        <item name="android:textColor">@color/text_color_black</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/text_color_gray</item>
         <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
 </resources>

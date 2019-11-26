@@ -8,11 +8,11 @@ import cat.tiki.tikirefresh.TikiBaseViewModel
  * Created by Yifa Liang on 2019-08-22.
  */
 class KotlinBoxCoverViewModel : TikiBaseViewModel() {
-
+    open var tagId: Int = 0
     val service = getService(SampleApi::class.java)
 
     val topicListModel = Transformations.switchMap(page) {
-        service?.getTopicList(it, 249)
+        service?.getTopicList(it, tagId)
     }
 
 

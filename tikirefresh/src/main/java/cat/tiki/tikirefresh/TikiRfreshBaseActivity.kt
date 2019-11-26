@@ -12,6 +12,7 @@ import cat.tiki.tikiadapter.TikiRvAdapter
 import cat.tiki.tikirefresh.lifecycle.ApiErrorResponse
 import cat.tiki.tikirefresh.lifecycle.ApiSuccessResponse
 import cat.tiki.tikirefresh.lifecycle.TikiApiResponse
+import cat.tiki.tikirefresh.lifecycle.TikiHttpCommon
 import cat.tiki.tikirefresh.widget.TikiLoadMoreCircleFooter
 import cat.tiki.tikirefresh.widget.TikiErrorView
 import kotlinx.android.synthetic.main.lib_arch_activity_kotlin_base.*
@@ -20,7 +21,7 @@ import cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout
 /**
  * Created by Tikitoo on 2019-11-07.
  */
-open abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppCompatActivity(), TikiSmartRefreshLayout.Callback {
+abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppCompatActivity(), TikiSmartRefreshLayout.Callback {
 
     private lateinit var refreshRvLayout: TikiSmartRefreshLayout
     lateinit var dataList: MutableList<out TikiBaseModel>
@@ -39,13 +40,13 @@ open abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppC
 
         refreshRvLayout = biz_show_kotlin_base_refresh_rv_layout
         errorView = biz_show_kotlin_base_error_view
+        initCircleLoadingView()
         setRvAdapter()
         loadDataNet()
-        initCircleLoadingView()
     }
 
     private fun setRvAdapter() {
-        recyclerView = refreshRvLayout?.getRecyclerView()
+        recyclerView = refreshRvLayout.getRecyclerView()
         dataList = arrayListOf()
         rvAdapter = TikiRvAdapter(
             applicationContext,
@@ -60,6 +61,7 @@ open abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppC
         refreshRvLayout.setCallback(this)
         refreshRvLayout.setPullToRefresh(true)
         refreshRvLayout.enableLoadMore()
+
     }
 
 
@@ -83,23 +85,35 @@ open abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppC
                 }
 
 
-                refreshRvLayout?.loadMoreComplete()
+                refreshRvLayout.loadMoreComplete()
                 if (it is ApiSuccessResponse<M>) {
-                    it.body?.apply {
-                        onSuccCallback(it?.body)
+                    it.body.apply {
+                        onSuccCallback(it.body)
                     }
                     errorView?.visibility = View.GONE
 //                    LogUtils.d("load data success.....")
                 } else if(it is ApiErrorResponse<*>) {
                     // 设置错误数据
-                    it?.apply {
-                        errorView?.errorText(it.errorMessage)
-                        errorView?.visibility = View.VISIBLE
+                    it.apply {
+                        if (-1 == it.errorCode) {
+                            setEmptyText(TikiHttpCommon.EMPTYTXT_FAILED)
+                        } else if(it.errorCode >= 400 && it.errorCode < 500) {
+                            setEmptyText(TikiHttpCommon.EMPTYTXT_400)
+                        } else if(it.errorCode >= 500) {
+                            setEmptyText(TikiHttpCommon.EMPTYTXT_500)
+                        } else {
+                            setEmptyText(TikiHttpCommon.EMPTYTXT_NO_DATA)
+                        }
                     }
 //                    LogUtils.e("load data failed.....")
                 }
             }
         })
+    }
+
+    fun setEmptyText(emptyTxt: String) {
+        errorView?.errorText(emptyTxt)
+        errorView?.visibility = View.VISIBLE
     }
 
     fun updateData(showDataList: MutableList<out TikiBaseModel>) {
@@ -123,10 +137,15 @@ open abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppC
         viewModel?.loading()
     }
 
+    open fun onStartRefresh() {
+        refreshRvLayout.autoRefresh()
+    }
+
     override fun onRefreshBegin() {
-//        LogUtils.d()
+        println("onRefreshBegin........")
         viewModel?.refresh()
     }
+
 
     override fun onLoadMoreBegin() {
 //        LogUtils.d()
@@ -141,19 +160,19 @@ open abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppC
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
             )
             loadingView = TikiLoadMoreCircleFooter(this)
-            loadingView?.setOnClickListener{
 
-            }
             addContentView(loadingView, layoutParams)
             loadingView?.setVisibility(View.GONE)
         }
     }
 
     fun showLoading() {
+        loadingView?.visibility = View.VISIBLE
         loadingView?.show()
     }
 
     fun dismissLoading() {
+        loadingView?.visibility = View.GONE
         loadingView?.dismiss()
     }
 
