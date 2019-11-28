@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import cat.tiki.tikirefresh.samples.boxcover.KotlinBoxCoverActivity
+import cat.tiki.tikirefresh.samples.squre.SquareActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +19,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, cls)
             startActivity(intent)
         }
+
+        activity_main_square_tv.setOnClickListener {
+            val cls = SquareActivity::class.java as Class<Any>?
+            val intent = Intent(this, cls)
+            startActivity(intent)
+        }
+
+
     }
 
 }

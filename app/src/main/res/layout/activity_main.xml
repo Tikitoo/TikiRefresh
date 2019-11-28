@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/activity_main_refresh_sample_tv"
@@ -13,6 +14,16 @@
         style="@style/TikiCommon.ClickBtnStyle"
         android:layout_height="@dimen/click_btn_height"
         android:text="@string/test_title"
+        />
+
+    <TextView
+        android:id="@+id/activity_main_square_tv"
+        android:layout_width="match_parent"
+        style="@style/TikiCommon.ClickBtnStyle"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:layout_height="@dimen/click_btn_height"
+        android:text="square"
         />
 
 </LinearLayout>

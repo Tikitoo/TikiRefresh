@@ -1,13 +1,16 @@
 # TikiRefresh
 
 
-## v0.1.4
-
+## future
 1. 实现更多 Refresh header & footer
 2. json 返回不规范 手动解析
+
+
+
+## v0.1.4
+1. 实现自定义配置数据（非网络请求）
+2. 添加 Fragment 实现方式
 3. 本地的数据，也可支持
-
-
 
 ## v0.1.3
 

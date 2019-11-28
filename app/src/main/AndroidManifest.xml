@@ -25,6 +25,7 @@
         </activity>
 
         <activity android:name=".boxcover.KotlinBoxCoverActivity" />
+        <activity android:name=".squre.SquareActivity" />
     </application>
 
 </manifest>
