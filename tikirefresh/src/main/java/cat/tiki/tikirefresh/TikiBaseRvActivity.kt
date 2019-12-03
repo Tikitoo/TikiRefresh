@@ -9,7 +9,6 @@ import cat.tiki.tikiadapter.TikiRvAdapter
 import cat.tiki.tikirefresh.widget.TikiErrorView
 import cat.tiki.tikirefresh.widget.TikiLoadMoreCircleFooter
 import cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout
-import kotlinx.android.synthetic.main.lib_arch_activity_kotlin_base.*
 
 /**
  * Created by Tikitoo on 2019-11-07.
@@ -30,8 +29,8 @@ abstract class TikiBaseRvActivity: TikiBaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lib_arch_activity_kotlin_base)
 
-        refreshRvLayout = biz_show_kotlin_base_refresh_rv_layout
-        errorView = biz_show_kotlin_base_error_view
+        refreshRvLayout = findViewById<TikiSmartRefreshLayout>(R.id.biz_show_kotlin_base_refresh_rv_layout)
+        errorView = findViewById<TikiErrorView>(R.id.biz_show_kotlin_base_error_view)
         initCircleLoadingView()
         setRvAdapter()
     }

@@ -10,7 +10,6 @@ import cat.tiki.tikiadapter.TikiRvAdapter
 import cat.tiki.tikirefresh.widget.TikiErrorView
 import cat.tiki.tikirefresh.widget.TikiLoadMoreCircleFooter
 import cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout
-import kotlinx.android.synthetic.main.lib_arch_fragment_kotlin_base.*
 
 /**
  * Created by Yifa Liang on 2019-11-28.
@@ -32,15 +31,16 @@ abstract class TikiBaseRvFragment: TikiBaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.lib_arch_fragment_kotlin_base, container, false)
-
-
-
-        refreshRvLayout = fragment_kotlin_base_refresh_rv_layout
-        errorView = fragment_kotlin_base_error_view
-        loadingView = fragment_kotlin_base_loading_view
+        val view = inflater.inflate(R.layout.lib_arch_fragment_kotlin_base, container, false)
+        refreshRvLayout = view.findViewById(R.id.fragment_kotlin_base_refresh_rv_layout)
+        errorView = view.findViewById(R.id.fragment_kotlin_base_error_view)
+        loadingView = view.findViewById(R.id.fragment_kotlin_base_loading_view)
         setRvAdapter()
-        return rootView
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
     private fun setRvAdapter() {

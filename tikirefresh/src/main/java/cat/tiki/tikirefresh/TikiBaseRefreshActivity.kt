@@ -15,7 +15,6 @@ import cat.tiki.tikirefresh.lifecycle.TikiApiResponse
 import cat.tiki.tikirefresh.lifecycle.TikiHttpCommon
 import cat.tiki.tikirefresh.widget.TikiLoadMoreCircleFooter
 import cat.tiki.tikirefresh.widget.TikiErrorView
-import kotlinx.android.synthetic.main.lib_arch_activity_kotlin_base.*
 import cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout
 
 /**
@@ -38,8 +37,8 @@ abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppCompat
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lib_arch_activity_kotlin_base)
 
-        refreshRvLayout = biz_show_kotlin_base_refresh_rv_layout
-        errorView = biz_show_kotlin_base_error_view
+        refreshRvLayout = findViewById(R.id.biz_show_kotlin_base_refresh_rv_layout)
+        errorView = findViewById(R.id.biz_show_kotlin_base_error_view)
         initCircleLoadingView()
         setRvAdapter()
         loadDataNet()

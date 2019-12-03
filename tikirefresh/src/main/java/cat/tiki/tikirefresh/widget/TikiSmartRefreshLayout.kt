@@ -9,7 +9,6 @@ import cat.tiki.tikirefresh.R
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter
 import com.scwang.smartrefresh.layout.header.ClassicsHeader
-import kotlinx.android.synthetic.main.lib_widget_smart_refresh_layout.view.*
 
 
 /**
@@ -29,8 +28,8 @@ class TikiSmartRefreshLayout @JvmOverloads constructor(context: Context, attrs: 
 
     private fun initView(context: Context, attrs: AttributeSet?) {
         val view = View.inflate(context, R.layout.lib_widget_smart_refresh_layout, this)
-                refreshLayout = view.lib_widget_refresh_view_frame
-                refreshRv = view.lib_widget_refresh_rcv
+                refreshLayout = view.findViewById(R.id.lib_widget_refresh_view_frame)
+                refreshRv = view.findViewById(R.id.lib_widget_refresh_rcv)
 
         refreshLayout?.apply {
             setOnRefreshListener {
