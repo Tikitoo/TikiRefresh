@@ -10,6 +10,7 @@ android {
     buildToolsVersion = '28.0.3'
 
     defaultConfig {
+//        applicationId "cat.tiki.tikirefresh"
         minSdkVersion 14
         targetSdkVersion 28
         versionCode 1
@@ -39,32 +40,30 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.1.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api 'androidx.core:core-ktx:1.1.0'
+    api 'androidx.appcompat:appcompat:1.1.0'
+    api 'androidx.recyclerview:recyclerview:1.0.0'
 
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
 //    api project(':tikiadapter')
-    implementation ('cat.tiki:tikiadapter:0.1.5') {
+    api ('cat.tiki:tikiadapter:0.1.5') {
         exclude group: 'org.jetbrains.kotlin', module:'kotlin-stdlib'
     }
 
-
-
-    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    api "com.squareup.okhttp3:okhttp:$okhttp_version"
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
 
     // moshi
-    implementation "com.squareup.moshi:moshi-kotlin:1.8.0"
-    implementation "com.squareup.retrofit2:converter-moshi:2.4.0"
+    api "com.squareup.moshi:moshi-kotlin:1.8.0"
+    api "com.squareup.retrofit2:converter-moshi:2.4.0"
     kapt("com.squareup.moshi:moshi-kotlin-codegen:1.8.0")
 
     // lifecycle
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+    api "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    api "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    api "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+    api "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
 
 }
 
@@ -75,7 +74,7 @@ publish {
 //    repoName = 'TikiRefresh'   // bintray上仓库的名字
     groupId = 'cat.tiki'//jcenter上的路径
     artifactId = 'tikirefresh'//项目名称
-    publishVersion = '0.1.4'//版本号
+    publishVersion = '0.1.8'//版本号
     desc = 'It is a simple and easy to refresh&loadmore packaging framework'// 描述
     website = 'https://github.com/tikitoo/TikiRefresh'//一般填github 项目地址,一定是要有效的地址
 }

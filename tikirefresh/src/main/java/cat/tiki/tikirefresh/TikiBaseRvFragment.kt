@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.lib_arch_fragment_kotlin_base.*
  * Created by Yifa Liang on 2019-11-28.
  */
 abstract class TikiBaseRvFragment: TikiBaseFragment() {
-    private lateinit var refreshRvLayout: TikiSmartRefreshLayout
+    private var refreshRvLayout: TikiSmartRefreshLayout? = null
     //    lateinit var refreshType: TikiBaseViewModel.RefreshType
     private var loadingView: TikiLoadMoreCircleFooter? = null
     private var errorView: TikiErrorView? = null
@@ -32,7 +32,9 @@ abstract class TikiBaseRvFragment: TikiBaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.lib_arch_fragment_kotlin_base, null)
+        val rootView = inflater.inflate(R.layout.lib_arch_fragment_kotlin_base, container, false)
+
+
 
         refreshRvLayout = fragment_kotlin_base_refresh_rv_layout
         errorView = fragment_kotlin_base_error_view
@@ -42,8 +44,8 @@ abstract class TikiBaseRvFragment: TikiBaseFragment() {
     }
 
     private fun setRvAdapter() {
-        recyclerView = refreshRvLayout.getRecyclerView()
-        dataList = arrayListOf()
+        recyclerView = refreshRvLayout?.getRecyclerView()
+        dataList = mutableListOf()
         rvAdapter = TikiRvAdapter(
             activity?.applicationContext!!,
             dataList
@@ -56,7 +58,7 @@ abstract class TikiBaseRvFragment: TikiBaseFragment() {
 
         }
 
-        refreshRvLayout.setPullToRefresh(false)
+        refreshRvLayout?.setPullToRefresh(false)
 
 //        refreshRvLayout.setCallback(this)
 //        refreshRvLayout.setPullToRefresh(true)

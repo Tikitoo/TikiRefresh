@@ -1,1 +1,1 @@
-include ':app', ':TikiRefresh', ':common'
+include ':app', ':tikirefresh', ':common'

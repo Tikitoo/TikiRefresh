@@ -9,6 +9,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
 
     }
     dependencies {
@@ -25,6 +26,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
 
         maven {
             url 'https://dl.bintray.com/novoda-oss/snapshots/'
@@ -33,6 +35,7 @@ allprojects {
         mavenCentral()
         flatDir {
             dirs 'libs'
+//            dirs project(':tikirefresh').file('libs')
         }
     }
 }

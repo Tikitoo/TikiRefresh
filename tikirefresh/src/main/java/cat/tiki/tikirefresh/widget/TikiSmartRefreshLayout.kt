@@ -2,42 +2,33 @@ package cat.tiki.tikirefresh.widget
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.scwang.smartrefresh.layout.footer.ClassicsFooter
-import com.scwang.smartrefresh.layout.header.ClassicsHeader
 import cat.tiki.tikirefresh.R
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter
+import com.scwang.smartrefresh.layout.header.ClassicsHeader
 import kotlinx.android.synthetic.main.lib_widget_smart_refresh_layout.view.*
 
 
 /**
  * Created by Tikitoo on 2019-11-07.
  */
-open class TikiSmartRefreshLayout : RelativeLayout {
+class TikiSmartRefreshLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
+    : RelativeLayout(context, attrs, defStyleAttr) {
+
+    init {
+        initView(context, attrs)
+    }
+
 
     private lateinit var refreshRv: RecyclerView
     private lateinit var refreshLayout: SmartRefreshLayout
 
-    constructor(context: Context): super(context) {
-        initView(context, null)
-    }
-
-    constructor(context: Context, attrs: AttributeSet?): super(context, attrs) {
-        initView(context, attrs)
-    }
-
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int?): super(context, attrs,
-        defStyleAttr!!
-    ) {
-        initView(context, attrs)
-    }
 
     private fun initView(context: Context, attrs: AttributeSet?) {
-        val view = LayoutInflater.from(context)
-            .inflate(R.layout.lib_widget_smart_refresh_layout, this, true)
+        val view = View.inflate(context, R.layout.lib_widget_smart_refresh_layout, this)
                 refreshLayout = view.lib_widget_refresh_view_frame
                 refreshRv = view.lib_widget_refresh_rcv
 
