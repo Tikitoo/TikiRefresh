@@ -47,7 +47,7 @@ dependencies {
 
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
 //    api project(':tikiadapter')
-    api ('cat.tiki:tikiadapter:0.1.5') {
+    api ('cat.tiki:tikiadapter:0.1.7') {
         exclude group: 'org.jetbrains.kotlin', module:'kotlin-stdlib'
     }
 
@@ -74,7 +74,7 @@ publish {
 //    repoName = 'TikiRefresh'   // bintray上仓库的名字
     groupId = 'cat.tiki'//jcenter上的路径
     artifactId = 'tikirefresh'//项目名称
-    publishVersion = '0.1.9'//版本号
+    publishVersion = '0.1.10'//版本号
     desc = 'It is a simple and easy to refresh&loadmore packaging framework'// 描述
     website = 'https://github.com/tikitoo/TikiRefresh'//一般填github 项目地址,一定是要有效的地址
 }
