@@ -21,6 +21,8 @@ class KotlinBoxCoverActivity: TikiBaseRefreshActivity<KotlinSubject, KotlinBoxCo
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        onStartRefresh()
+        enablePullRefresh(false)
+        enableLoadMore(true)
         onFirstLoad()
 
     }

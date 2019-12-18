@@ -46,6 +46,7 @@ class TikiSmartRefreshLayout @JvmOverloads constructor(context: Context, attrs: 
             setRefreshHeader(ClassicsHeader(context))
             setRefreshFooter(ClassicsFooter(context).setDrawableSize(20f))
 
+
         }
     }
 
@@ -55,8 +56,8 @@ class TikiSmartRefreshLayout @JvmOverloads constructor(context: Context, attrs: 
         }
     }
 
-    fun enableLoadMore() {
-        // TODO: 2019-11-07  新的Footer
+    fun enableLoadMore(enable: Boolean) {
+        refreshLayout?.setEnableLoadMore(enable)
 
     }
 

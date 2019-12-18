@@ -18,6 +18,9 @@ import cat.tiki.tikirefresh.widget.TikiErrorView
 import cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout
 
 /**
+ * 通用的网络请求
+ * 使用 LiveData 实现
+ *
  * Created by Tikitoo on 2019-11-07.
  */
 abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppCompatActivity(), TikiSmartRefreshLayout.Callback {
@@ -57,10 +60,20 @@ abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppCompat
             adapter?.notifyDataSetChanged()
 
         }
-        refreshRvLayout.setCallback(this)
-        refreshRvLayout.setPullToRefresh(true)
-        refreshRvLayout.enableLoadMore()
+        refreshRvLayout?.apply {
+            setCallback(this@TikiBaseRefreshActivity)
+            setPullToRefresh(true)
+            enableLoadMore(false)
+        }
 
+    }
+
+    protected fun enableLoadMore(enable: Boolean) {
+        refreshRvLayout.enableLoadMore(enable)
+    }
+
+    protected fun enablePullRefresh(enable: Boolean) {
+        refreshRvLayout.setPullToRefresh(enable)
     }
 
 
@@ -150,7 +163,6 @@ abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppCompat
 //        LogUtils.d()
         viewModel?.loadMore()
     }
-
 
 
     private fun initCircleLoadingView() {

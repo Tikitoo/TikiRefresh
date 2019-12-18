@@ -11,9 +11,11 @@ import cat.tiki.tikirefresh.widget.TikiLoadMoreCircleFooter
 import cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout
 
 /**
+ *
  * Created by Tikitoo on 2019-11-07.
  */
-abstract class TikiBaseRvActivity: TikiBaseActivity() {
+abstract class TikiBaseRvActivity: TikiBaseActivity(), TikiSmartRefreshLayout.Callback {
+
 
     private lateinit var refreshRvLayout: TikiSmartRefreshLayout
 //    lateinit var refreshType: TikiBaseViewModel.RefreshType
@@ -49,9 +51,9 @@ abstract class TikiBaseRvActivity: TikiBaseActivity() {
             adapter?.notifyDataSetChanged()
 
         }
-//        refreshRvLayout.setCallback(this)
-//        refreshRvLayout.setPullToRefresh(true)
-//        refreshRvLayout.enableLoadMore()
+        refreshRvLayout.setCallback(this)
+        refreshRvLayout.setPullToRefresh(true)
+        refreshRvLayout.enableLoadMore(false)
 
     }
 
@@ -87,6 +89,15 @@ abstract class TikiBaseRvActivity: TikiBaseActivity() {
             addContentView(loadingView, layoutParams)
             loadingView?.setVisibility(View.GONE)
         }
+    }
+
+    override fun onPullDownBegin(currentPercent: Float) {
+    }
+
+    override fun onRefreshBegin() {
+    }
+
+    override fun onLoadMoreBegin() {
     }
 
 
