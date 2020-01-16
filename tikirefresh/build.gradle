@@ -52,6 +52,7 @@ dependencies {
     }
 
     api "com.squareup.okhttp3:okhttp:$okhttp_version"
+    api "com.squareup.okhttp3:logging-interceptor:4.3.1"
     api "com.squareup.retrofit2:retrofit:$retrofit_version"
 
     // moshi
@@ -74,9 +75,9 @@ publish {
 //    repoName = 'TikiRefresh'   // bintray上仓库的名字
     groupId = 'cat.tiki'//jcenter上的路径
     artifactId = 'tikirefresh'//项目名称
-    publishVersion = '0.1.11'//版本号
+    publishVersion = '0.2.1'//版本号
     desc = 'It is a simple and easy to refresh&loadmore packaging framework'// 描述
-    website = 'https://github.com/tikitoo/TikiRefresh'//一般填github 项目地址,一定是要有效的地址
+    website = 'https://github.com/tikiimplementation("com.squareup.okhttp3:logging-interceptor:4.3.1")too/TikiRefresh'//一般填github 项目地址,一定是要有效的地址
 }
 
 // ./gradlew clean build bintrayUpload -PbintrayUser=tikitoo -PbintrayKey= -PdryRun=false
