@@ -14,7 +14,7 @@ import cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout
 /**
  * Created by Yifa Liang on 2019-11-28.
  */
-abstract class TikiBaseRvFragment: TikiBaseFragment() {
+abstract class TikiBaseRvFragment: TikiBaseFragment(), TikiSmartRefreshLayout.Callback {
     private var refreshRvLayout: TikiSmartRefreshLayout? = null
     //    lateinit var refreshType: TikiBaseViewModel.RefreshType
     private var loadingView: TikiLoadMoreCircleFooter? = null
@@ -55,14 +55,12 @@ abstract class TikiBaseRvFragment: TikiBaseFragment() {
             rvAdapter.setRvConfig(false, this)
             onRegisterItem(rvAdapter)
             adapter?.notifyDataSetChanged()
-
         }
 
-        refreshRvLayout?.setPullToRefresh(false)
+        refreshRvLayout?.setPullToRefresh(true)
 
-//        refreshRvLayout.setCallback(this)
-//        refreshRvLayout.setPullToRefresh(true)
-//        refreshRvLayout.enableLoadMore()
+        refreshRvLayout?.setCallback(this)
+        refreshRvLayout?.enableLoadMore(false)
 
     }
 
@@ -71,6 +69,7 @@ abstract class TikiBaseRvFragment: TikiBaseFragment() {
 
     fun setEmptyText(emptyTxt: String) {
         errorView?.errorText(emptyTxt)
+        errorView?.errorImage(R.drawable.lib_widget_default_error)
         errorView?.visibility = View.VISIBLE
     }
 
@@ -102,4 +101,16 @@ abstract class TikiBaseRvFragment: TikiBaseFragment() {
         super.onActivityCreated(savedInstanceState)
 
     }
+
+    override fun onPullDownBegin(currentPercent: Float) {
+
+    }
+
+    override fun onRefreshBegin() {
+    }
+
+    override fun onLoadMoreBegin() {
+    }
+
+
 }

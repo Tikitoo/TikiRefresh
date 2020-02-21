@@ -17,8 +17,13 @@ open class TikiBaseViewModel : ViewModel {
 
     companion object {
         open fun <S> getService(service: Class<S>): S {
-            return TikiRetrofitClient().getRetrofit().create(service)
+            return TikiRetrofitClient().getRetrofit("https://api.zaozuo.com").create(service)
         }
+
+        open fun <S> getService2(host: String, service: Class<S>): S {
+            return TikiRetrofitClient().getRetrofit(host).create(service)
+        }
+
     }
 
     open fun loadMore() {

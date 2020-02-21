@@ -10,6 +10,7 @@ import cat.tiki.tikirefresh.TikiBaseViewModel
 class KotlinBoxCoverViewModel : TikiBaseViewModel() {
     open var tagId: Int = 0
     val service = getService(SampleApi::class.java)
+//    val service2 = getService2("", SampleApi::class.java)
 
     val topicListModel = Transformations.switchMap(page) {
         service?.getTopicList(it, tagId)

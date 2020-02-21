@@ -24,7 +24,6 @@ class KotlinBoxCoverActivity: TikiBaseRefreshActivity<KotlinSubject, KotlinBoxCo
         enablePullRefresh(false)
         enableLoadMore(true)
         onFirstLoad()
-
     }
 
     override fun onSuccCallback(body: KotlinSubject) {
@@ -65,6 +64,9 @@ class KotlinBoxCoverActivity: TikiBaseRefreshActivity<KotlinSubject, KotlinBoxCo
             }
         }
     }
+
+
+
 
     override fun createLiveData(): LiveData<TikiApiResponse<KotlinSubject>>? {
         viewModel.tagId = 249

@@ -1,6 +1,5 @@
 package cat.tiki.tikirefresh.lifecycle
 
-import cat.tiki.tikirefresh.lifecycle.HttpsUtils
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -8,15 +7,11 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import com.squareup.moshi.JsonAdapter
-
-
-
 
 
 open class TikiRetrofitClient {
 
-    fun getRetrofit(): Retrofit {
+    fun getRetrofit(host: String): Retrofit {
         val moshi = Moshi.Builder()
                 .add(KotlinJsonAdapterFactory())
 //                .add(LocalDateTimeAdapter())
@@ -26,7 +21,7 @@ open class TikiRetrofitClient {
         val map = Types.newParameterizedType(Map::class.java, String::class.java, Any::class.java)
         val adapter = moshi.adapter<Map<String, Any>>(map)
         return Retrofit.Builder()
-                .baseUrl(HTTPS_API_HOST)
+                .baseUrl(if (host != null)  host else HTTPS_API_HOST)
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
                 .addCallAdapterFactory(TikiLiveDataCallAdapterFactory())
                 .callFactory(okhttp?.build())
