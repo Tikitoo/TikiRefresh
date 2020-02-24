@@ -1,4 +1,4 @@
-package cat.tiki.tikirefresh.samples.fragment
+package cat.tiki.tikirefresh.samples.fg
 
 import android.os.Bundle
 import android.view.View

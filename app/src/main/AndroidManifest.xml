@@ -26,7 +26,7 @@
 
         <activity android:name=".boxcover.KotlinBoxCoverActivity" />
         <activity android:name=".squre.SquareActivity" />
-        <activity android:name=".fragment.TikiFragmentSampleActivity" />
+        <activity android:name=".fg.TikiFragmentSampleActivity" />
     </application>
 
 </manifest>

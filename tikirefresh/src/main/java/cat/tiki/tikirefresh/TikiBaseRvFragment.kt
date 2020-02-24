@@ -57,7 +57,7 @@ abstract class TikiBaseRvFragment: TikiBaseFragment(), TikiSmartRefreshLayout.Ca
             adapter?.notifyDataSetChanged()
         }
 
-        refreshRvLayout?.setPullToRefresh(true)
+        refreshRvLayout?.setPullToRefresh(false)
 
         refreshRvLayout?.setCallback(this)
         refreshRvLayout?.enableLoadMore(false)

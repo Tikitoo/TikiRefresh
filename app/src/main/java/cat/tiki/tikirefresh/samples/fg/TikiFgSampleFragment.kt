@@ -1,4 +1,4 @@
-package cat.tiki.tikirefresh.samples.fragment
+package cat.tiki.tikirefresh.samples.fg
 
 import android.os.Bundle
 import android.view.View
@@ -33,8 +33,8 @@ class TikiFgSampleFragment: TikiBaseRvFragment(), TikiItemClickListener {
             recyclerView?.postDelayed({
                 dismissLoading()
                 val squreList = mutableListOf<TikiSquare>()
-                for (i in 0..10) {
-                    squreList.add(TikiSquare(ITEM_SQUARE, 2, "title: " + i))
+                for (i in 0..3) {
+                    squreList.add(TikiSquare(ITEM_SQUARE, 1, "title: " + i))
                 }
                 updateData(squreList)
             }, 500L)

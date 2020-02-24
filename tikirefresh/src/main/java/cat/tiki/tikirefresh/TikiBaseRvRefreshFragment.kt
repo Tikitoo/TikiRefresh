@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
@@ -14,8 +13,8 @@ import cat.tiki.tikirefresh.lifecycle.ApiErrorResponse
 import cat.tiki.tikirefresh.lifecycle.ApiSuccessResponse
 import cat.tiki.tikirefresh.lifecycle.TikiApiResponse
 import cat.tiki.tikirefresh.lifecycle.TikiHttpCommon
-import cat.tiki.tikirefresh.widget.TikiLoadMoreCircleFooter
 import cat.tiki.tikirefresh.widget.TikiErrorView
+import cat.tiki.tikirefresh.widget.TikiLoadMoreCircleFooter
 import cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout
 
 /**
