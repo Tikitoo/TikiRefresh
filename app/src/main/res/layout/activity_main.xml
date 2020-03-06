@@ -13,7 +13,7 @@
         android:gravity="center"
         style="@style/TikiCommon.ClickBtnStyle"
         android:layout_height="@dimen/click_btn_height"
-        android:text="@string/test_title"
+        android:text="list activity"
         />
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_marginTop="5dp"
         android:gravity="center"
         android:layout_height="@dimen/click_btn_height"
-        android:text="square"
+        android:text="square item activity"
         />
 
 

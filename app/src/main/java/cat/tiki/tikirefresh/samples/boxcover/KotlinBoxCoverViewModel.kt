@@ -1,5 +1,6 @@
 package cat.tiki.tikirefresh.samples.boxcover
 
+import androidx.arch.core.util.Function
 import androidx.lifecycle.*
 import cat.tiki.tikirefresh.TikiBaseViewModel
 

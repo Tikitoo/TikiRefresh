@@ -13,5 +13,4 @@ interface SampleApi {
     fun getTopicList(@Query("page") page:Int = 1,
                      @Query("tagId")tagId:Int): LiveData<TikiApiResponse<KotlinSubject>>
 
-
 }
