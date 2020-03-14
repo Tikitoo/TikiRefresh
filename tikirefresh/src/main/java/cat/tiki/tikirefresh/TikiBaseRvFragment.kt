@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import androidx.recyclerview.widget.RecyclerView
 import cat.tiki.tikiadapter.TikiBaseModel
 import cat.tiki.tikiadapter.TikiRvAdapter
@@ -19,6 +20,7 @@ abstract class TikiBaseRvFragment: TikiBaseFragment(), TikiSmartRefreshLayout.Ca
     //    lateinit var refreshType: TikiBaseViewModel.RefreshType
     private var loadingView: TikiLoadMoreCircleFooter? = null
     private var errorView: TikiErrorView? = null
+    private var topLayout: RelativeLayout? = null
     var recyclerView: RecyclerView? = null
 
 
@@ -31,7 +33,8 @@ abstract class TikiBaseRvFragment: TikiBaseFragment(), TikiSmartRefreshLayout.Ca
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.lib_arch_fragment_kotlin_base, container, false)
+        val view = inflater.inflate(R.layout.fragment_kotlin_base, container, false)
+        topLayout = view.findViewById(R.id.fragment_kotlin_base_refresh_top_layout)
         refreshRvLayout = view.findViewById(R.id.fragment_kotlin_base_refresh_rv_layout)
         errorView = view.findViewById(R.id.fragment_kotlin_base_error_view)
         loadingView = view.findViewById(R.id.fragment_kotlin_base_loading_view)

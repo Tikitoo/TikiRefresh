@@ -3,6 +3,7 @@ package cat.tiki.tikirefresh
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import androidx.recyclerview.widget.RecyclerView
 import cat.tiki.tikiadapter.TikiBaseModel
 import cat.tiki.tikiadapter.TikiRvAdapter
@@ -25,14 +26,16 @@ abstract class TikiBaseRvActivity: TikiBaseActivity(), TikiSmartRefreshLayout.Ca
 
     lateinit var dataList: MutableList<out TikiBaseModel>
     lateinit var rvAdapter: TikiRvAdapter<TikiBaseModel>
+    lateinit var topLayout: RelativeLayout
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lib_arch_activity_kotlin_base)
+        setContentView(R.layout.activity_kotlin_base)
 
-        refreshRvLayout = findViewById<TikiSmartRefreshLayout>(R.id.biz_show_kotlin_base_refresh_rv_layout)
-        errorView = findViewById<TikiErrorView>(R.id.biz_show_kotlin_base_error_view)
+        topLayout = findViewById<RelativeLayout>(R.id.kotlin_base_refresh_top_layout)
+        refreshRvLayout = findViewById<TikiSmartRefreshLayout>(R.id.kotlin_base_refresh_rv_layout)
+        errorView = findViewById<TikiErrorView>(R.id.kotlin_base_error_view)
         initCircleLoadingView()
         setRvAdapter()
     }

@@ -32,7 +32,7 @@ class TikiErrorView @JvmOverloads constructor(context: Context, attrs: Attribute
 
 
     private fun initView(context: Context) {
-        val rootView = LayoutInflater.from(context).inflate(R.layout.lib_widget_errorview, this)
+        val rootView = LayoutInflater.from(context).inflate(R.layout.base_errorview, this)
         libWidgetIvImage = rootView.findViewById<View>(R.id.lib_widget_iv_image) as ImageView
         libWidgetTvText = rootView.findViewById<View>(R.id.lib_widget_tv_text) as TextView
         mTvLink = rootView.findViewById<View>(R.id.lib_widget_tv_link) as TextView

@@ -2,6 +2,7 @@ package cat.tiki.tikirefresh.samples.fg
 
 import android.os.Bundle
 import android.view.View
+import cat.tiki.common.extension.dip2px
 import cat.tiki.tikiadapter.TikiBaseModel
 import cat.tiki.tikiadapter.TikiItemClickListener
 import cat.tiki.tikiadapter.TikiRvAdapter
@@ -34,7 +35,11 @@ class TikiFgSampleFragment: TikiBaseRvFragment(), TikiItemClickListener {
                 dismissLoading()
                 val squreList = mutableListOf<TikiSquare>()
                 for (i in 0..3) {
-                    squreList.add(TikiSquare(ITEM_SQUARE, 1, "title: " + i))
+                    val squre = TikiSquare(ITEM_SQUARE, 1, "title: $i")
+                    squre.rect?.apply {
+                        bottom = dip2px(10f)
+                    }
+                    squreList.add(squre)
                 }
                 updateData(squreList)
             }, 500L)

@@ -3,6 +3,7 @@ package cat.tiki.tikirefresh
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -33,15 +34,17 @@ abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppCompat
     //    var loadingView = biz_show_kotlin_base_loading_view
     private var loadingView: TikiLoadMoreCircleFooter? = null
     private var errorView: TikiErrorView? = null
+    lateinit var topLayout: RelativeLayout
     var recyclerView: RecyclerView? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lib_arch_activity_kotlin_base)
+        setContentView(R.layout.activity_kotlin_base)
 
-        refreshRvLayout = findViewById(R.id.biz_show_kotlin_base_refresh_rv_layout)
-        errorView = findViewById(R.id.biz_show_kotlin_base_error_view)
+        topLayout = findViewById<RelativeLayout>(R.id.kotlin_base_refresh_top_layout)
+        refreshRvLayout = findViewById(R.id.kotlin_base_refresh_rv_layout)
+        errorView = findViewById(R.id.kotlin_base_error_view)
         initCircleLoadingView()
         setRvAdapter()
         loadDataNet()

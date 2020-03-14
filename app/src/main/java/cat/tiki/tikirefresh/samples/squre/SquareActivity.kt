@@ -3,6 +3,8 @@ package cat.tiki.tikirefresh.samples.squre
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
+import cat.tiki.common.extension.dip2px
 import cat.tiki.tikiadapter.TikiBaseModel
 import cat.tiki.tikiadapter.TikiItemClickListener
 import cat.tiki.tikiadapter.TikiRvAdapter
@@ -25,9 +27,17 @@ class SquareActivity: TikiBaseRvActivity(), TikiItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+        val textView = TextView(applicationContext)
+        textView.setText("hdfasfsaf")
+        topLayout?.addView(textView)
         val squreList = mutableListOf<TikiSquare>()
         for (i in 0..10) {
-            squreList.add(TikiSquare(ITEM_SQUARE, 2, "title: " + i))
+            val tikiSquare = TikiSquare(ITEM_SQUARE, 2, "title: $i")
+            tikiSquare.rect?.apply {
+                bottom = dip2px(10f)
+            }
+            squreList.add(tikiSquare)
         }
         updateData(squreList)
     }

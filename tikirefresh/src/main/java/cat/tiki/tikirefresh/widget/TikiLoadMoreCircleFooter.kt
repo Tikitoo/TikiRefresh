@@ -29,7 +29,7 @@ class TikiLoadMoreCircleFooter @JvmOverloads constructor(
     }
 
     private fun init(context: Context) {
-        View.inflate(context, R.layout.lib_widget_zz_circle_loadmore_layout, this)
+        View.inflate(context, R.layout.circle_loadmore_layout, this)
         initView(this)
     }
 

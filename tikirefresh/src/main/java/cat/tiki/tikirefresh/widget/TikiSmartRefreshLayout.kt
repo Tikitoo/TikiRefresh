@@ -27,7 +27,7 @@ class TikiSmartRefreshLayout @JvmOverloads constructor(context: Context, attrs: 
 
 
     private fun initView(context: Context, attrs: AttributeSet?) {
-        val view = View.inflate(context, R.layout.lib_widget_smart_refresh_layout, this)
+        val view = View.inflate(context, R.layout.smart_refresh_layout, this)
                 refreshLayout = view.findViewById(R.id.lib_widget_refresh_view_frame)
                 refreshRv = view.findViewById(R.id.lib_widget_refresh_rcv)
 

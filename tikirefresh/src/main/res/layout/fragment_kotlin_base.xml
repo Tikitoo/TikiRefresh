@@ -4,8 +4,15 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+
+    <RelativeLayout
+        android:id="@+id/fragment_kotlin_base_refresh_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout
         android:id="@+id/fragment_kotlin_base_refresh_rv_layout"
+        android:layout_below="@+id/fragment_kotlin_base_refresh_top_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
