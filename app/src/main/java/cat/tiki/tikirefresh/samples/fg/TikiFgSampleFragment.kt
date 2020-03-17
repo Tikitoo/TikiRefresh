@@ -42,7 +42,7 @@ class TikiFgSampleFragment: TikiBaseRvFragment(), TikiItemClickListener {
                     squreList.add(squre)
                 }
                 updateData(squreList)
-            }, 500L)
+            }, 2500L)
         }
 
 

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -126,8 +127,20 @@ abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppCompat
         })
     }
 
+
     fun setEmptyText(emptyTxt: String) {
         errorView?.errorText(emptyTxt)
+        errorView?.visibility = View.VISIBLE
+    }
+
+    fun setEmptyImg(@DrawableRes drawId: Int) {
+        errorView?.errorImage(drawId)
+        errorView?.visibility = View.VISIBLE
+    }
+
+    fun setEmpty(emptyTxt: String, @DrawableRes drawId: Int) {
+        errorView?.errorText(emptyTxt)
+        errorView?.errorImage(drawId)
         errorView?.visibility = View.VISIBLE
     }
 

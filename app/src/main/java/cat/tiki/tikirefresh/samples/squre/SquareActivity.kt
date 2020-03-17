@@ -28,6 +28,8 @@ class SquareActivity: TikiBaseRvActivity(), TikiItemClickListener {
         super.onCreate(savedInstanceState)
 
 
+        refreshRvLayout.enableLoadMore(true)
+
         val textView = TextView(applicationContext)
         textView.setText("hdfasfsaf")
         topLayout?.addView(textView)
@@ -41,6 +43,21 @@ class SquareActivity: TikiBaseRvActivity(), TikiItemClickListener {
         }
         updateData(squreList)
     }
+
+    override fun onPullDownBegin(currentPercent: Float) {
+        super.onPullDownBegin(currentPercent)
+    }
+
+    override fun onRefreshBegin() {
+        super.onRefreshBegin()
+    }
+
+    override fun onLoadMoreBegin() {
+        super.onLoadMoreBegin()
+
+    }
+
+
 
     companion object {
         val ITEM_SQUARE = R.layout.item_square

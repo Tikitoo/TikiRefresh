@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import cat.tiki.tikirefresh.samples.boxcover.KotlinBoxCoverActivity
 import cat.tiki.tikirefresh.samples.fg.TikiFragmentSampleActivity
+import cat.tiki.tikirefresh.samples.jsoup.TikiHtmlSampleActivity
 import cat.tiki.tikirefresh.samples.squre.SquareActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,6 +24,12 @@ class MainActivity : AppCompatActivity() {
 
         activity_main_square_tv.setOnClickListener {
             val cls = SquareActivity::class.java as Class<Any>?
+            val intent = Intent(this, cls)
+            startActivity(intent)
+        }
+
+        activity_main_refresh_html_tv.setOnClickListener {
+            val cls = TikiHtmlSampleActivity::class.java as Class<Any>?
             val intent = Intent(this, cls)
             startActivity(intent)
         }

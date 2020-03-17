@@ -21,8 +21,10 @@
 
     <cat.tiki.tikirefresh.widget.TikiErrorView
         android:id="@+id/fragment_kotlin_base_error_view"
+        android:layout_below="@+id/fragment_kotlin_base_refresh_top_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:visibility="gone"
         />
 
@@ -30,6 +32,7 @@
         android:id="@+id/fragment_kotlin_base_loading_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:visibility="gone"
         />
 

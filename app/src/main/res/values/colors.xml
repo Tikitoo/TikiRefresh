@@ -8,4 +8,11 @@
     <color name="color_red">@color/colorAccent</color>
     <color name="color_red_light" />
     <color name="color_gray">#999999</color>
+
+
+    <color name="dj_color_title">#00278E</color>
+    <color name="dj_color_url">#20692B</color>
+    <color name="dj_color_content">#494949</color>
+
+
 </resources>

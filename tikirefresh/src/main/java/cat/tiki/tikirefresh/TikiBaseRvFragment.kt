@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
 import cat.tiki.tikiadapter.TikiBaseModel
 import cat.tiki.tikiadapter.TikiRvAdapter
@@ -73,6 +74,17 @@ abstract class TikiBaseRvFragment: TikiBaseFragment(), TikiSmartRefreshLayout.Ca
     fun setEmptyText(emptyTxt: String) {
         errorView?.errorText(emptyTxt)
         errorView?.errorImage(R.drawable.lib_widget_default_error)
+        errorView?.visibility = View.VISIBLE
+    }
+
+    fun setEmptyImg(@DrawableRes drawId: Int) {
+        errorView?.errorImage(drawId)
+        errorView?.visibility = View.VISIBLE
+    }
+
+    fun setEmpty(emptyTxt: String, @DrawableRes drawId: Int) {
+        errorView?.errorText(emptyTxt)
+        errorView?.errorImage(drawId)
         errorView?.visibility = View.VISIBLE
     }
 

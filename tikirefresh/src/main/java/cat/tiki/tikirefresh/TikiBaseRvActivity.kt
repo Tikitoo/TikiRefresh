@@ -1,9 +1,11 @@
 package cat.tiki.tikirefresh
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
 import cat.tiki.tikiadapter.TikiBaseModel
 import cat.tiki.tikiadapter.TikiRvAdapter
@@ -18,15 +20,15 @@ import cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout
 abstract class TikiBaseRvActivity: TikiBaseActivity(), TikiSmartRefreshLayout.Callback {
 
 
-    private lateinit var refreshRvLayout: TikiSmartRefreshLayout
+    protected lateinit var refreshRvLayout: TikiSmartRefreshLayout
 //    lateinit var refreshType: TikiBaseViewModel.RefreshType
     private var loadingView: TikiLoadMoreCircleFooter? = null
     private var errorView: TikiErrorView? = null
     var recyclerView: RecyclerView? = null
 
-    lateinit var dataList: MutableList<out TikiBaseModel>
-    lateinit var rvAdapter: TikiRvAdapter<TikiBaseModel>
-    lateinit var topLayout: RelativeLayout
+    protected lateinit var dataList: MutableList<out TikiBaseModel>
+    protected lateinit var rvAdapter: TikiRvAdapter<TikiBaseModel>
+    protected lateinit var topLayout: RelativeLayout
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,9 +64,19 @@ abstract class TikiBaseRvActivity: TikiBaseActivity(), TikiSmartRefreshLayout.Ca
 
     abstract fun onRegisterItem(rvAdapter: TikiRvAdapter<TikiBaseModel>)
 
-
     fun setEmptyText(emptyTxt: String) {
         errorView?.errorText(emptyTxt)
+        errorView?.visibility = View.VISIBLE
+    }
+
+    fun setEmptyImg(@DrawableRes drawId: Int) {
+        errorView?.errorImage(drawId)
+        errorView?.visibility = View.VISIBLE
+    }
+
+    fun setEmpty(emptyTxt: String, @DrawableRes drawId: Int) {
+        errorView?.errorText(emptyTxt)
+        errorView?.errorImage(drawId)
         errorView?.visibility = View.VISIBLE
     }
 
@@ -95,12 +107,15 @@ abstract class TikiBaseRvActivity: TikiBaseActivity(), TikiSmartRefreshLayout.Ca
     }
 
     override fun onPullDownBegin(currentPercent: Float) {
+        Log.d("TikiBaseRvActivity", "onPullDownBegin")
     }
 
     override fun onRefreshBegin() {
+        Log.d("TikiBaseRvActivity", "onRefreshBegin")
     }
 
     override fun onLoadMoreBegin() {
+        Log.d("TikiBaseRvActivity", "onLoadMoreBegin")
     }
 
 

@@ -11,7 +11,7 @@
 
     <cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout
         android:id="@+id/kotlin_base_refresh_rv_layout"
-        android:layout_below="@+id/biz_show_kotlin_base_refresh_top_layout"
+        android:layout_below="@+id/kotlin_base_refresh_top_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -20,8 +20,10 @@
 
     <cat.tiki.tikirefresh.widget.TikiErrorView
         android:id="@+id/kotlin_base_error_view"
+        android:layout_below="@+id/kotlin_base_refresh_top_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:visibility="gone"
         />
 
